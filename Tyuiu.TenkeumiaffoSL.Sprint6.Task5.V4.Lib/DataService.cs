@@ -15,28 +15,32 @@ namespace Tyuiu.TenkeumiaffoSL.Sprint6.Task5.V4.Lib
 
             string text = File.ReadAllText(path);
 
-            string[] parts = text.Split(new char[]
-            {
-                ' ', '\n', '\r', '\t', ',', ';'
-            }, StringSplitOptions.RemoveEmptyEntries);
+            // Разделители: пробел, табуляция, перенос строки
+            string[] parts = text.Split(new char[] { ' ', '\n', '\r', '\t', ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             List<double> result = new List<double>();
 
             foreach (string part in parts)
             {
-                if (double.TryParse(
-                    part.Replace(',', '.'),
-                    NumberStyles.Any,
-                    CultureInfo.InvariantCulture,
-                    out double num))
+                if (double.TryParse(part.Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture, out double num))
                 {
-                    // Добавляем только целые числа
-                    if (num % 1 == 0)
-                        result.Add(num);
+                    // Берем только целые числа
+                    if (num == Math.Truncate(num))
+                    {
+                        result.Add(Math.Round(num, 3));
+                    }
                 }
             }
 
-            return result.ToArray();
+       
+            List<double> finalResult = new List<double>();
+            foreach (double n in result)
+            {
+                if (!finalResult.Contains(n))
+                    finalResult.Add(n);
+            }
+
+            return finalResult.ToArray();
         }
     }
 }
