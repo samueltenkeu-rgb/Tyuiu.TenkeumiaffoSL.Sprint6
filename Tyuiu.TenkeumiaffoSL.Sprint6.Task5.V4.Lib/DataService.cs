@@ -30,7 +30,9 @@ namespace Tyuiu.TenkeumiaffoSL.Sprint6.Task5.V4.Lib
                     CultureInfo.InvariantCulture,
                     out double num))
                 {
-                    result.Add(Math.Round(num, 3));
+                    // Добавляем только целые числа
+                    if (num % 1 == 0)
+                        result.Add(num);
                 }
             }
 
