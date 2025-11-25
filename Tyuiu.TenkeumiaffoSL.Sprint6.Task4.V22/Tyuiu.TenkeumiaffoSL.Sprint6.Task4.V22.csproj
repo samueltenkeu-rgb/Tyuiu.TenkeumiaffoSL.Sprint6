@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tyuiu.TenkeumiaffoSL.Sprint6.Task4.V22.Lib\Tyuiu.TenkeumiaffoSL.Sprint6.Task4.V22.Lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ScottPlot.WinForms" Version="5.1.57" />
+  </ItemGroup>
+
+</Project>
