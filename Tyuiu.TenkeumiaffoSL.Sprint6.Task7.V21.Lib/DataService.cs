@@ -17,12 +17,20 @@ namespace Tyuiu.TenkeumiaffoSL.Sprint6.Task7.V21.Lib
             for (int i = 0; i < rows; i++)
             {
                 int[] values = lines[i].Split(';').Select(s => int.Parse(s.Trim())).ToArray();
+
                 for (int j = 0; j < cols; j++)
-                    matrix[i, j] = values[j];
+                {
+                    // 8-й столбец (индекс 7): если значение != 5, ставим -1
+                    if (j == 7 && values[j] != 5)
+                        matrix[i, j] = -1;
+                    else
+                        matrix[i, j] = values[j];
+                }
             }
 
             return matrix;
         }
+
 
         public int[,] ProcessMatrix(int[,] matrix)
         {
