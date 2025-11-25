@@ -21,7 +21,7 @@ namespace Tyuiu.TenkeumiaffoSL.Sprint6.Task5.V4
         {
             try
             {
-                string path = @"C:\Users\Иван\source\repos\Tyuiu.TenkeumiaffoSL.Sprint6\Sprint6Task5\InPutFileTask5V4.txt";
+                string path = $@"C:\Users\{Environment.UserName}\source\repos\Tyuiu.TenkeumiaffoSL.Sprint6\Sprint6Task5\InPutFileTask5V4.txt";
 
                 values = ds.LoadFromDataFile(path);
 
