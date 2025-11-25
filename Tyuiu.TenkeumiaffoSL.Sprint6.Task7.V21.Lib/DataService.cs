@@ -34,16 +34,20 @@ namespace Tyuiu.TenkeumiaffoSL.Sprint6.Task7.V21.Lib
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    // В 8-м столбце (индекс 7) все != 5 заменяем на -1
-                    if (j == 7 && matrix[i, j] != 5)
-                        result[i, j] = -1;
-                    else
-                        result[i, j] = matrix[i, j];
+                    result[i, j] = matrix[i, j]; // копируем по умолчанию
+                }
+
+                // Обработка 8-го столбца (индекс 7)
+                if (cols > 7)
+                {
+                    if (result[i, 7] != 5)
+                        result[i, 7] = -1;
                 }
             }
 
             return result;
         }
+
 
         public void SaveMatrix(int[,] matrix, string path)
         {
